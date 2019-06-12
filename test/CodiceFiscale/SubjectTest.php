@@ -9,6 +9,21 @@ namespace CodiceFiscale;
  */
 class SubjectTest extends \PHPUnit\Framework\TestCase
 {
+    protected $subject = null;
+    public function __construct($name = null, array $data = [], $dataName = '')
+    {
+        parent::__construct($name, $data, $dataName);
+        $this->subject = new Subject(
+            array(
+                'name' => 'Mario',
+                'surname' => 'Rossi',
+                'birthDate' => '1985-12-10',
+                'gender' => 'M',
+                'belfioreCode' => 'A562',
+            )
+        );
+    }
+
     /**
      * Test for getName.
      */
@@ -20,10 +35,10 @@ class SubjectTest extends \PHPUnit\Framework\TestCase
             'surname' => 'Rossi',
             'birthDate' => '1985-12-10',
             'gender' => 'M',
-            'belfioreCode' => 'A562',
+            //'belfioreCode' => 'A562',
           )
         );
-        $actual = $subject->getName();
+        $actual = $this->subject->getName();
         $expected = 'Mario';
         $this->assertEquals($expected, $actual);
     }
@@ -42,8 +57,8 @@ class SubjectTest extends \PHPUnit\Framework\TestCase
             'belfioreCode' => 'A562',
           )
         );
-        $subject->setName('Fabrizio');
-        $actual = $subject->getName();
+        $this->subject->setName('Fabrizio');
+        $actual = $this->subject->getName();
         $expected = 'Fabrizio';
         $this->assertEquals($expected, $actual);
     }
@@ -62,7 +77,7 @@ class SubjectTest extends \PHPUnit\Framework\TestCase
             'belfioreCode' => 'A562',
           )
         );
-        $actual = $subject->getSurname();
+        $actual = $this->subject->getSurname();
         $expected = 'Rossi';
         $this->assertEquals($expected, $actual);
     }
@@ -81,8 +96,8 @@ class SubjectTest extends \PHPUnit\Framework\TestCase
             'belfioreCode' => 'A562',
           )
         );
-        $subject->setSurname('Russo');
-        $actual = $subject->getSurname();
+        $this->subject->setSurname('Russo');
+        $actual = $this->subject->getSurname();
         $expected = 'Russo';
         $this->assertEquals($expected, $actual);
     }
@@ -101,7 +116,7 @@ class SubjectTest extends \PHPUnit\Framework\TestCase
             'belfioreCode' => 'A562',
           )
         );
-        $actual = $subject->getBirthDate();
+        $actual = $this->subject->getBirthDate();
         $expected = new \DateTime('1985-12-10');
         $this->assertEquals($expected, $actual);
     }
@@ -120,8 +135,8 @@ class SubjectTest extends \PHPUnit\Framework\TestCase
             'belfioreCode' => 'A562',
           )
         );
-        $subject->setBirthDate(new \DateTime('1944-01-10'));
-        $actual = $subject->getBirthDate();
+        $this->subject->setBirthDate(new \DateTime('1944-01-10'));
+        $actual = $this->subject->getBirthDate();
         $expected = new \DateTime('1944-01-10');
         $this->assertEquals($expected, $actual);
     }
@@ -140,8 +155,8 @@ class SubjectTest extends \PHPUnit\Framework\TestCase
             'belfioreCode' => 'A562',
           )
         );
-        $subject->setBirthDate(new \DateTimeImmutable('1944-01-10'));
-        $actual = $subject->getBirthDate();
+        $this->subject->setBirthDate(new \DateTimeImmutable('1944-01-10'));
+        $actual = $this->subject->getBirthDate();
         $expected = new \DateTimeImmutable('1944-01-10');
         $this->assertEquals($expected, $actual);
     }
@@ -160,8 +175,8 @@ class SubjectTest extends \PHPUnit\Framework\TestCase
             'belfioreCode' => 'A562',
           )
         );
-        $subject->setBirthDate('1944-01-10');
-        $actual = $subject->getBirthDate();
+        $this->subject->setBirthDate('1944-01-10');
+        $actual = $this->subject->getBirthDate();
         $expected = new \DateTimeImmutable('1944-01-10');
         $this->assertEquals($expected, $actual);
     }
@@ -180,7 +195,7 @@ class SubjectTest extends \PHPUnit\Framework\TestCase
             'belfioreCode' => 'A562',
           )
         );
-        $actual = $subject->getGender();
+        $actual = $this->subject->getGender();
         $expected = 'M';
         $this->assertEquals($expected, $actual);
     }
@@ -199,8 +214,8 @@ class SubjectTest extends \PHPUnit\Framework\TestCase
             'belfioreCode' => 'A562',
           )
         );
-        $subject->setGender('F');
-        $actual = $subject->getGender();
+        $this->subject->setGender('F');
+        $actual = $this->subject->getGender();
         $expected = 'F';
         $this->assertEquals($expected, $actual);
     }
@@ -219,7 +234,7 @@ class SubjectTest extends \PHPUnit\Framework\TestCase
             'belfioreCode' => 'A562',
           )
         );
-        $actual = $subject->getBelfioreCode();
+        $actual = $this->subject->getBelfioreCode();
         $expected = 'A562';
         $this->assertEquals($expected, $actual);
     }
@@ -238,8 +253,8 @@ class SubjectTest extends \PHPUnit\Framework\TestCase
             'belfioreCode' => 'A562',
           )
         );
-        $subject->setBelfioreCode('H501');
-        $actual = $subject->getBelfioreCode();
+        $this->subject->setBelfioreCode('H501');
+        $actual = $this->subject->getBelfioreCode();
         $expected = 'H501';
         $this->assertEquals($expected, $actual);
     }
