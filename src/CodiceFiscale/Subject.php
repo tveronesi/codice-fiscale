@@ -18,6 +18,8 @@ class Subject
     private $birthDate;
     private $gender;
     private $belfioreCode;
+    private $birthPlace;
+    private $birthPlaceProvince;
 
     /**
      * Create a Codice Fiscale instance.
@@ -28,7 +30,9 @@ class Subject
      *                          - surname: the surname;
      *                          - birthDate: the birth date;
      *                          - gender: the gender;
-     *                          - belfioreCode: the Belfiore code.
+     *                          - belfioreCode: the Belfiore code;
+     *                          - birthPlace: City of Birth;
+     *                          - birthPlaceProvince: Province of birth.
      * @throws Exception
      */
     public function __construct($properties)
@@ -52,6 +56,14 @@ class Subject
 
         if (array_key_exists('belfioreCode', $properties)) {
             $this->belfioreCode = $properties['belfioreCode'];
+        }
+
+        if (array_key_exists('birthPlace', $properties)) {
+            $this->birthPlace = $properties['birthPlace'];
+        }
+
+        if (array_key_exists('birthPlaceProvince', $properties)) {
+            $this->birthPlaceProvince = $properties['birthPlaceProvince'];
         }
     }
 
@@ -154,5 +166,36 @@ class Subject
     public function setBelfioreCode($belfioreCode)
     {
         $this->belfioreCode = $belfioreCode;
+    }
+    /**
+     * @return string
+     */
+    public function getBirthPlace()
+    {
+        return $this->birthPlace;
+    }
+
+    /**
+     * @param string $birthPlace
+     */
+    public function setBirthPlace($birthPlace)
+    {
+        $this->birthPlace = $birthPlace;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBirthPlaceProvince()
+    {
+        return $this->birthPlaceProvince;
+    }
+
+    /**
+     * @param string $birthPlaceProvince
+     */
+    public function setBirthPlaceProvince($birthPlaceProvince)
+    {
+        $this->birthPlaceProvince = $birthPlaceProvince;
     }
 }
